@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import AvailablePlayers from "./Component/AvailablePlayers/AvailablePlayers";
 import Banner from "./Component/Banner/Banner";
@@ -7,6 +8,28 @@ import Navbar from "./Component/Header/Navbar";
 import Newsletter from "./Component/Newsletter/Newsletter";
 
 function App() {
+  const [isActive, SetIsActive] = useState({
+    card: true,
+    status: "available",
+  });
+  
+const handleIsActiveState =(status) => {
+  if (status == "card") {
+    SetIsActive({
+      card: true,
+      status: "available",
+    });
+  } else {
+    SetIsActive({
+      card: false,
+      status: "selected",
+    });
+  }
+}
+
+console.log(isActive);
+
+
 
 // const [selectedPlayers, setSelectedPlayers] = useState([]);
 
@@ -28,9 +51,13 @@ function App() {
       <div>
         <Navbar></Navbar>
         <Banner></Banner>
-        <AvailablePlayers></AvailablePlayers>
         {/* card section */}
-        <Card></Card>
+        <Card
+          isActive={isActive}
+          handleIsActiveState={handleIsActiveState}
+        ></Card>
+        <AvailablePlayers></AvailablePlayers>
+
         {/* Newsletter */}
         <Newsletter></Newsletter>
         {/* Footer */}
