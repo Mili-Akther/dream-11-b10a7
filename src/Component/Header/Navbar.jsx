@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar = ({ price }) => {
+const Navbar = ({ price, balance }) => {
   return (
     <div className="navbar px-4 w-full">
       <div className="flex-1">
@@ -34,7 +34,9 @@ const Navbar = ({ price }) => {
         {/* Coin Button */}
         <div className="ml-4">
           <button className="btn btn-sm flex items-center text-lg">
-            <span>{price} Coin</span>
+            <span>
+               {balance} Coin
+            </span>
             <span className="ml-1 text-yellow-500">🪙</span>
           </button>
         </div>

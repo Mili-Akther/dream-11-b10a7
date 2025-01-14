@@ -1,8 +1,17 @@
 import React from 'react';
 
-export default function SelectedBtn({ selectedPlayers, handleDelete }) {
+export default function SelectedBtn({
+  selectedPlayers,
+  handleDelete,
+  handleAddMorePlayers,
+  maxPlayers,
+}) {
   return (
     <div className="container mx-auto px-4 py-8">
+      {/* Selected Players Count */}
+      <h2 className="text-xl font-bold">
+        Selected Player ({selectedPlayers.length}/{maxPlayers})
+      </h2>
       <div className="space-y-4">
         {selectedPlayers.map((player) => (
           <div
@@ -31,7 +40,18 @@ export default function SelectedBtn({ selectedPlayers, handleDelete }) {
           </div>
         ))}
       </div>
+
+      {/* Add More Player Button */}
+      {selectedPlayers.length < maxPlayers && (
+        <div className="mt-4">
+          <button
+            onClick={handleAddMorePlayers}
+            className="bg-lime-300 mr-4 font-bold text-md p-2 btn"
+          >
+            Add More Player
+          </button>
+        </div>
+      )}
     </div>
   );
-};
-
+}

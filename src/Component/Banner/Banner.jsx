@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Banner = () => {
+const Banner = ({ handleClaimCredit }) => {
   return (
     <div
       className="hero text-center py-20 bg-black rounded-3xl"
       style={{
-        backgroundImage: "url('https://i.ibb.co.com/qWqTkfc/bg-shadow.png')", 
+        backgroundImage: "url('https://i.ibb.co.com/qWqTkfc/bg-shadow.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -13,7 +13,7 @@ const Banner = () => {
       <div className="hero-content flex flex-col items-center  bg-opacity-50 p-10 rounded-lg">
         {/* Logo */}
         <img
-          src="/src/assets/banner-main.png" 
+          src="/src/assets/banner-main.png"
           alt="Cricket Banner Logo"
           className="h-32 w-auto mb-4"
         />
@@ -29,7 +29,10 @@ const Banner = () => {
         </p>
 
         {/* Button */}
-        <button className="btn btn-primary bg-lime-300 text-black font-bold px-6 py-2 rounded-md hover:bg-yellow-500">
+        <button
+          onClick={handleClaimCredit}
+          className="btn btn-primary bg-lime-300 text-black font-bold px-6 py-2 rounded-md hover:bg-yellow-500"
+        >
           Claim Free Credit
         </button>
       </div>
