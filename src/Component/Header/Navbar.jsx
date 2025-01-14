@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const Navbar = ({ biddingPrice }) => {
+const Navbar = ({ price }) => {
   return (
     <div className="navbar px-4 w-full">
       <div className="flex-1">
@@ -34,9 +34,7 @@ const Navbar = ({ biddingPrice }) => {
         {/* Coin Button */}
         <div className="ml-4">
           <button className="btn btn-sm flex items-center text-lg">
-            <span>
-              {biddingPrice}Coin
-            </span>
+            <span>{price} Coin</span>
             <span className="ml-1 text-yellow-500">🪙</span>
           </button>
         </div>

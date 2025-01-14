@@ -8,7 +8,7 @@ import Navbar from "./Component/Header/Navbar";
 import Newsletter from "./Component/Newsletter/Newsletter";
 
 function App() {
-  const [price,setPrice]=useState(0)
+  const [price, setPrice] = useState(0);
   const [selectedPlayers, setSelectedPlayers] = useState([]);
   const [isActive, SetIsActive] = useState({
     card: true,
@@ -31,14 +31,20 @@ function App() {
 
   console.log(isActive);
 
+  const handleIncreasePrice = (pr) => {
+    setPrice(price + pr);
+  };
 
-const handleIncreasePrice = (pr) => {
-  setPrice(price+pr)
-}
+  const handleDeletePrice = (playerId) => {
+    const player = selectedPlayers.find((p) => p.playerId == playerId);
+    setPrice(price - player.biddingPrice);
+    
+  };
 
   const handleDelete = (playerId) => {
+    handleDeletePrice(playerId);
     const newPlayer = selectedPlayers.filter((p) => p.playerId != playerId);
-    setSelectedPlayers(newPlayer)
+    setSelectedPlayers(newPlayer);
   };
 
   return (
@@ -48,6 +54,7 @@ const handleIncreasePrice = (pr) => {
         <Banner></Banner>
         {/* card section */}
         <Card
+          handleIncreasePrice={handleIncreasePrice}
           handleDelete={handleDelete}
           setSelectedPlayers={setSelectedPlayers}
           selectedPlayers={selectedPlayers}
