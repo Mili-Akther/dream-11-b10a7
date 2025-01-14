@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import AvailableBtn from "../AvailableBtn/AvailableBtn";
 import SelectedBtn from "../SelectedBtn/SelectedBtn";
-export default function Card({ handleIsActiveState, isActive }) {
-  console.log(isActive);
+export default function Card({
+  handleIsActiveState,
+  isActive,
+  selectedPlayers,
+  setSelectedPlayers,
+  handleDelete,
+  handleIncreasePrice,
+}) {
   return (
     <div>
       <div className="flex justify-between px-4 mt-12 ">
@@ -28,11 +34,18 @@ export default function Card({ handleIsActiveState, isActive }) {
           </button>
         </div>
       </div>
-      {isActive.card ?
-        <AvailableBtn></AvailableBtn>
-      : 
-        <SelectedBtn></SelectedBtn>
-      }
+      {isActive.card ? (
+        <AvailableBtn
+          handleIncreasePrice={handleIncreasePrice}
+          selectedPlayers={selectedPlayers}
+          setSelectedPlayers={setSelectedPlayers}
+        ></AvailableBtn>
+      ) : (
+        <SelectedBtn
+          handleDelete={handleDelete}
+          selectedPlayers={selectedPlayers}
+        ></SelectedBtn>
+      )}
     </div>
   );
 };

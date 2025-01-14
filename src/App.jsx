@@ -8,55 +8,55 @@ import Navbar from "./Component/Header/Navbar";
 import Newsletter from "./Component/Newsletter/Newsletter";
 
 function App() {
+  const [price,setPrice]=useState(0)
+  const [selectedPlayers, setSelectedPlayers] = useState([]);
   const [isActive, SetIsActive] = useState({
     card: true,
     status: "available",
   });
-  
-const handleIsActiveState =(status) => {
-  if (status == "card") {
-    SetIsActive({
-      card: true,
-      status: "available",
-    });
-  } else {
-    SetIsActive({
-      card: false,
-      status: "selected",
-    });
-  }
+
+  const handleIsActiveState = (status) => {
+    if (status == "card") {
+      SetIsActive({
+        card: true,
+        status: "available",
+      });
+    } else {
+      SetIsActive({
+        card: false,
+        status: "selected",
+      });
+    }
+  };
+
+  console.log(isActive);
+
+
+const handleIncreasePrice = (pr) => {
+  setPrice(price+pr)
 }
 
-console.log(isActive);
-
-
-
-// const [selectedPlayers, setSelectedPlayers] = useState([]);
-
-// const handleSelectedPlayer = (Players) => {
-//   const isexist = selectedPlayers.find((p) => p.id == Players.id);
-
-//   if (isexist) {
-//     alert("r add kora jabeh na");
-//   } else {
-   
-//     const newProduct = [...selectedPlayers, Players];
-//      setSelectedPlayers(newProduct);
-//   }
-// };
-// console.log(selectedPlayers);
+  const handleDelete = (playerId) => {
+    const newPlayer = selectedPlayers.filter((p) => p.playerId != playerId);
+    setSelectedPlayers(newPlayer)
+  };
 
   return (
     <>
       <div>
-        <Navbar></Navbar>
+        <Navbar price={price} selectedPlayers={selectedPlayers}></Navbar>
         <Banner></Banner>
         {/* card section */}
         <Card
+          handleDelete={handleDelete}
+          setSelectedPlayers={setSelectedPlayers}
+          selectedPlayers={selectedPlayers}
           isActive={isActive}
           handleIsActiveState={handleIsActiveState}
         ></Card>
-        <AvailablePlayers></AvailablePlayers>
+        {/* <AvailablePlayers
+          handleSelectedPlayer={handleSelectedPlayer}
+        ></AvailablePlayers> */}
 
         {/* Newsletter */}
         <Newsletter></Newsletter>
