@@ -54,7 +54,23 @@ export default function AvailableBtn({
     // Add player to selected list
     handleIncreasePrice(player.biddingPrice);
     setSelectedPlayers([...selectedPlayers, player]);
+ // Show congratulations toast
+    toast.success(`Congratulations! ${player.name} has been selected!`, {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
+
+
+
+
+  
   return (
     <div>
       <AvailablePlayers
