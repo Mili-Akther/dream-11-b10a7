@@ -68,9 +68,6 @@ export default function AvailableBtn({
   };
 
 
-
-
-  
   return (
     <div>
       <AvailablePlayers
