@@ -12,6 +12,7 @@ export default function Card({
   maxPlayers,
   setIsAvailablePlayersVisible,
   isAvailablePlayersVisible,
+  balance,
 }) {
   return (
     <div>
@@ -29,15 +30,36 @@ export default function Card({
             Available
           </button>
           <button
-            onClick={() => handleIsActiveState("selected")}
+            onClick={() => {
+              if (balance > 0) {
+                handleIsActiveState("selected");
+              } else {
+                toast.error("Not enough balance to view selected players!", {
+                  position: "top-center",
+                  autoClose: 2000,
+                  hideProgressBar: false,
+                  closeOnClick: false,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+                });
+              }
+            }}
+            // disabled={balance === 0}
             className={`${
-              isActive.card ? "  text-md p-2" : "bg-lime-300  font-bold p-2"
+              isActive.card
+                ? "text-md p-2"
+                : `bg-lime-300 font-bold p-2 ${
+                    balance === 0 ? "opacity-50 cursor-not-allowed" : ""
+                  }`
             }`}
           >
             Selected ({selectedPlayers.length})
           </button>
         </div>
       </div>
+
       {isActive.card ? (
         isAvailablePlayersVisible && (
           <AvailableBtn
@@ -46,6 +68,7 @@ export default function Card({
             handleIncreasePrice={handleIncreasePrice}
             maxPlayers={maxPlayers}
             setIsAvailablePlayersVisible={setIsAvailablePlayersVisible}
+            balance={balance}
           ></AvailableBtn>
         )
       ) : (

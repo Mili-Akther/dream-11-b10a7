@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import "./App.css";
-import AvailablePlayers from "./Component/AvailablePlayers/AvailablePlayers";
 import Banner from "./Component/Banner/Banner";
 import Card from "./Component/Card/Card";
 import Footer from "./Component/Footer/Footer";
@@ -10,7 +10,7 @@ import Newsletter from "./Component/Newsletter/Newsletter";
 function App() {
   const [isAvailablePlayersVisible, setIsAvailablePlayersVisible] =
     useState(true);
-  const maxPlayers = 6; // Maximum players allowed
+  const maxPlayers = 6; 
   const [price, setPrice] = useState(0);
   const [balance, setBalance] = useState(0);
   const [selectedPlayers, setSelectedPlayers] = useState([]);
@@ -41,14 +41,32 @@ function App() {
       setPrice(price + pr);
       setBalance(balance - pr);
     } else {
-      alert("Not enough balance! Please claim free credit.");
+      toast.error("Not enough balance! Please claim free credit.",{
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",});
     }
+    
   };
 
   // Claim free credit button action
   const handleClaimCredit = () => {
     setBalance(balance + 10000000); // Add 100 units to the user's balance
-    alert("You have claimed 10000000 free credits!");
+    toast.success("You have claimed 10000000 free credits!", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   const handleDeletePrice = (playerId) => {
@@ -61,6 +79,17 @@ function App() {
     handleDeletePrice(playerId);
     const newPlayer = selectedPlayers.filter((p) => p.playerId != playerId);
     setSelectedPlayers(newPlayer);
+   toast.warn("You Removed a Player", {
+     position: "top-right",
+     autoClose: 2000,
+     hideProgressBar: false,
+     closeOnClick: false,
+     pauseOnHover: true,
+     draggable: true,
+     progress: undefined,
+     theme: "light",
+   });
+
   };
 
 const handleAddMorePlayers = () => {
@@ -89,16 +118,16 @@ const handleAddMorePlayers = () => {
           isAvailablePlayersVisible={isAvailablePlayersVisible}
           maxPlayers={maxPlayers}
           setIsAvailablePlayersVisible={setIsAvailablePlayersVisible}
-         
+          balance={balance}
         ></Card>
         {/* <AvailablePlayers
           handleSelectedPlayer={handleSelectedPlayer}
         ></AvailablePlayers> */}
-
         {/* Newsletter */}
         <Newsletter></Newsletter>
         {/* Footer */}
         <Footer></Footer>
+        <ToastContainer />;
       </div>
     </>
   );

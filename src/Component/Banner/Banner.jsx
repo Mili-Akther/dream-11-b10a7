@@ -31,7 +31,7 @@ const Banner = ({ handleClaimCredit }) => {
         {/* Button */}
         <button
           onClick={handleClaimCredit}
-          className="btn btn-primary bg-lime-300 text-black font-bold px-6 py-2 rounded-md hover:bg-yellow-500"
+          className="btn btn-primary bg-lime-300 text-black font-bold px-6 py-2 rounded-md hover:bg-yellow-500 text-lg"
         >
           Claim Free Credit
         </button>

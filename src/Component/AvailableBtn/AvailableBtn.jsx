@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Card from '../Card/Card';
+import { toast } from "react-toastify";
 import AvailablePlayers from '../AvailablePlayers/AvailablePlayers';
 
 export default function AvailableBtn({
@@ -8,19 +8,49 @@ export default function AvailableBtn({
   handleIncreasePrice,
   maxPlayers,
   setIsAvailablePlayersVisible,
- 
+  balance,
 }) {
   const handleSelectedPlayer = (player) => {
     const isexist = selectedPlayers.find((p) => p.playerId === player.playerId);
     if (isexist) {
-      alert("r add kora jabeh na");
+      toast.error("player already selected", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
     if (selectedPlayers.length >= maxPlayers) {
-      alert("Maximum players reached!");
+      toast.error("Maximum players reached!", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
-
+    if (balance < player.biddingPrice) {
+      toast.error("Not enough balance to add this player Claim free credit!", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
     // Add player to selected list
     handleIncreasePrice(player.biddingPrice);
     setSelectedPlayers([...selectedPlayers, player]);
@@ -31,7 +61,9 @@ export default function AvailableBtn({
         handleSelectedPlayer={handleSelectedPlayer}
         selectedPlayers={selectedPlayers}
         setIsAvailablePlayersVisible={setIsAvailablePlayersVisible}
+        balance={balance}
       />
+      {/* <ToastContainer/> */}
     </div>
   );
 };
