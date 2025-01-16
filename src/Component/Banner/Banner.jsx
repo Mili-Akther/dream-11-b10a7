@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Bannermain from '../../assets/banner-main.png'
 const Banner = ({ handleClaimCredit }) => {
   return (
     <div
@@ -13,7 +13,7 @@ const Banner = ({ handleClaimCredit }) => {
       <div className="hero-content flex flex-col items-center  bg-opacity-50 p-10 rounded-lg">
         {/* Logo */}
         <img
-          src="/src/assets/banner-main.png"
+          src={Bannermain}
           alt="Cricket Banner Logo"
           className="h-32 w-auto mb-4"
         />

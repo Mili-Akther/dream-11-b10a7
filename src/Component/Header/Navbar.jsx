@@ -7,7 +7,7 @@ const Navbar = ({ price, balance }) => {
         {/* Logo */}
         <a href="/" className="flex items-center text-lg font-bold">
           <img
-            src="/public/logo.png"
+            src="logo.png"
             alt="Cricket Logo"
             className="h-16 w-16 mr-2"
           />

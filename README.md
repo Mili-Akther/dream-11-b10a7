@@ -3,10 +3,10 @@
 Welcome to **BPL-DREAM 11**! This project is an interactive platform for creating and managing your dream cricket team for the BPL tournament. It provides a user-friendly interface for selecting players, managing budgets, and enjoying a seamless team-building experience.
 
 ---
+
 ## Live Demo
 
-Check out the live version of the project: [BPL-DREAM 11](https://bpl-dreams.netlify.app/)
----
+## Check out the live version of the project: [BPL-DREAM 11](https://bpl-dreams.netlify.app/)
 
 ## 🚀 Features
 
@@ -34,7 +34,7 @@ This project leverages modern web technologies for an optimized user experience:
 
 ## 📸 Screenshots
 
-*(Add screenshots of your application here to showcase its UI and functionality.)*
+![BPL-DREAM 11 Screenshot](./src/assets/Screenshot.png)
 
 ---
 
@@ -43,21 +43,25 @@ This project leverages modern web technologies for an optimized user experience:
 To get started with this project, follow these steps:
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/your-username/bpl-dream11.git
    ```
 
 2. Navigate to the project directory:
+
    ```bash
    cd bpl-dream11
    ```
 
 3. Install dependencies:
+
    ```bash
    npm install
    ```
 
 4. Start the development server:
+
    ```bash
    npm start
    ```
@@ -102,4 +106,3 @@ Contributions are always welcome! If you want to improve this project:
 ---
 
 Thank you for checking out **BPL-DREAM 11**! 🎉
-
