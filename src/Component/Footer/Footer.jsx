@@ -1,9 +1,9 @@
 import React from 'react';
-
+import logofooter from '../../assets/logo-footer.png'
 const Footer = () => {
   return (
     <footer className="bg-black py-32 text-gray-400">
-      <img className="mx-auto h-32" src="/src/assets/logo-footer.png" alt="" />
+      <img className="mx-auto h-32" src={logofooter} alt="" />
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 p-20">
         {/* About Us */}
         <div>

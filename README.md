@@ -34,7 +34,7 @@ This project leverages modern web technologies for an optimized user experience:
 
 ## 📸 Screenshots
 
-![BPL-DREAM 11 Screenshot](./src/assets/Screenshot.png)
+![BPL-DREAM 11 Screenshot](./src/assets/screenshot.jpg)
 
 ---
 
