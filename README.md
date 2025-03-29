@@ -8,7 +8,7 @@ Welcome to **BPL-DREAM 11**! This project is an interactive platform for creatin
 
 ## Check out the live version of the project: [BPL-DREAM 11](https://bpl-dreams.netlify.app/)
 
-## 🚀 Features
+## 🚀 Features-
 
 1. **Player Selection**:
    - Add players to your team with a simple click.
